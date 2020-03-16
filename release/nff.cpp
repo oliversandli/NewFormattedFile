@@ -1,7 +1,9 @@
 #include <fstream>
 #include <iostream>
+#include <pwd.h>
 #include <sstream>
 #include <string>
+#include <unistd.h>
 
 std::string readFile(std::string fileName) {
     std::ifstream inFile;
@@ -17,13 +19,19 @@ void writeFile(std::string fileName, std::string fileContents) {
     out.close();
 }
 
+std::string homeDir() {
+    struct passwd *pw = getpwuid(getuid());
+    std::string path(pw->pw_dir);
+    return path;
+}
+
 int main(int argc, char** argv) {
     if (argc == 2) {
         std::string newFileName(argv[1]);
         if ((newFileName == "--help") or (newFileName == "-h")) {
             std::cout << "New Formatted File v1.0.1\nCreate new file with the format assigned to the file extension.\nSee https://github.com/oliversandli/NewFormattedFile for help/documentation." << std::endl;
         } else {
-            std::string confPath("~/.config/nff/templates/" + newFileName.substr(newFileName.find(std::string(".")) + 1).append(".conf"));
+            std::string confPath(homeDir() + "/.config/nff/templates/" + newFileName.substr(newFileName.find(std::string(".")) + 1) + ".conf");
             std::string confContents(readFile(confPath));
             if (confContents == "") {
                 std::cout << "Error: no such config: " << confPath << std::endl;
