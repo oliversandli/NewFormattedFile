@@ -19,10 +19,15 @@ void writeFile(std::string fileName, std::string fileContents) {
     out.close();
 }
 
-std::string homeDir() {
-    struct passwd *pw = getpwuid(getuid());
-    std::string path(pw->pw_dir);
-    return path;
+std::string confDir() {
+    char *XDGPathChar = getenv("XDG_DATA_HOME");
+    if (XDGPathChar == NULL) {
+        struct passwd *pw = getpwuid(getuid());
+        std::string HOMEPath(pw->pw_dir);
+        return HOMEPath + "/.config";
+    }
+    std::string XDGPath(XDGPathChar);
+    return XDGPath;
 }
 
 int main(int argc, char** argv) {
@@ -31,7 +36,7 @@ int main(int argc, char** argv) {
         if ((newFileName == "--help") or (newFileName == "-h")) {
             std::cout << "New Formatted File v1.0.1\nCreate new file with the format assigned to the file extension.\nSee https://github.com/oliversandli/NewFormattedFile for help/documentation." << std::endl;
         } else {
-            std::string confPath(homeDir() + "/.config/nff/templates/" + newFileName.substr(newFileName.find(std::string(".")) + 1) + ".conf");
+            std::string confPath(confDir() + "/nff/templates/" + newFileName.substr(newFileName.find(std::string(".")) + 1) + ".conf");
             std::string confContents(readFile(confPath));
             if (confContents == "") {
                 std::cout << "Error: no such config: " << confPath << std::endl;
