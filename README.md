@@ -13,7 +13,7 @@ Run install script:
 cd NewFormattedFile/release/
 ./install.sh
 ```
-Config files are stored in `~/.config/nff/templates/`.
+Config files are stored in `~/.config/nff/templates/` or in `$XDG_CONFIG_HOME/nff/templates/` if target system is using [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
 
 See `install.sh` for installation details. It uses `g++` by default; change that command to preferred `C++` compiler before installing.
 
@@ -39,3 +39,7 @@ def func_one(arg_one, arg_two):
 if __name__ == "__main__":
     func_one(1, 2)
 ```
+
+## Special Thanks
+
+* [@RobertZenz](https://github.com/RobertZenz) for suggesting `XDG` support.
