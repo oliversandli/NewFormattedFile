@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
     if (argc == 2) {
         std::string newFileName(argv[1]);
         if ((newFileName == "--help") or (newFileName == "-h")) {
-            std::cout << "New Formatted File v1.0.1\nCreate new file with the format assigned to the file extension.\nSee https://github.com/oliversandli/NewFormattedFile for help/documentation." << std::endl;
+            std::cout << "New Formatted File v1.1.0\nCreate new file with the format assigned to the file extension.\nSee https://github.com/oliversandli/NewFormattedFile for help/documentation." << std::endl;
         } else {
             std::string confPath(confDir() + "/nff/templates/" + newFileName.substr(newFileName.find(std::string(".")) + 1) + ".conf");
             std::string confContents(readFile(confPath));
