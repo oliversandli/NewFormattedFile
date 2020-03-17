@@ -13,7 +13,7 @@ else
     mkdir ~/.config/nff/
     cp -r templates ~/.config/nff/templates/
   else
-    echo "Error: cannot find '$XDG_DATA_PATH' or '~/.config'
+    echo "Error: cannot find '$XDG_DATA_PATH' or '~/.config'"
     echo "Create templates directory manually or uninstall nff."
     exit 1
   fi
