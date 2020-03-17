@@ -20,7 +20,7 @@ void writeFile(std::string fileName, std::string fileContents) {
 }
 
 std::string confDir() {
-    char *XDGPathChar = getenv("XDG_DATA_HOME");
+    char *XDGPathChar = getenv("XDG_CONFIG_HOME");
     if (XDGPathChar == NULL) {
         struct passwd *pw = getpwuid(getuid());
         std::string HOMEPath(pw->pw_dir);
