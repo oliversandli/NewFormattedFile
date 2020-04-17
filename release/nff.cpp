@@ -1,4 +1,5 @@
 #include <fstream>
+#include <filesystem> // filesystem does not work on macOS versions <Catalina
 #include <iostream>
 #include <pwd.h>
 #include <sstream>
@@ -30,11 +31,20 @@ std::string conf_dir() {
     return XDG_path;
 }
 
+// add the ability to list config files (see lines 46-47)
+void list_confs(std::string dir) {
+    for (const auto & entry: std::filesystem::directory_iterator(dir)) {
+        std::cout << entry.path() << std::endl;
+    }
+}
+
 int main(int argc, char** argv) {
     if (argc == 2) {
         std::string new_file_name(argv[1]);
         if ((new_file_name == "--help") or (new_file_name == "-h")) {
             std::cout << "New Formatted File v1.0.1\nCreate new file with the format assigned to the file extension.\nSee https://github.com/oliversandli/NewFormattedFile for help/documentation." << std::endl;
+        } else if ((new_file_name == "--list") or (new_file_name == "-l")) {
+            list_confs(conf_dir() + "/nff/templates");
         } else {
             std::string conf_path(conf_dir() + "/nff/templates/" + new_file_name.substr(new_file_name.find(".") + 1) + ".conf");
             std::string conf_contents(read_file(conf_path));
