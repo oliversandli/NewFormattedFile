@@ -33,7 +33,7 @@ std::string conf_dir() {
 int main(int argc, char** argv) {
     if (argc == 2) {
         std::string new_file_name(argv[1]);
-        if ((new_file_name == "--help") or (new_file_name == "-h")) {
+        if ((new_file_name == "--help") or (new_file_name == "-h") or (new_file_name == "--version") or (new_file_name == "-v")) {
             std::cout << "New Formatted File v1.0.1\nCreate new file with the format assigned to the file extension.\nSee https://github.com/oliversandli/NewFormattedFile for help/documentation." << std::endl;
         } else {
             std::string conf_path(conf_dir() + "/nff/templates/" + new_file_name.substr(new_file_name.find(".") + 1) + ".conf");
