@@ -1,6 +1,6 @@
 # NewFormattedFile
 
-nff (NewFormattedFile) creates a new file with the format specified by its matching config file. Thus a file ending in `.py` will be created with the contents of `nff`'s `py.conf`. The `.conf` files are simply plain text. Four `.conf` files are included as examples.
+nff (NewFormattedFile) creates a new file with the format specified by its matching config file. Thus a file ending in `.py` will be created with the contents of `nff`'s `py.conf`. The `.conf` files are simply plain text. Five `.conf` files are included as examples.
 
 ## Installation
 
