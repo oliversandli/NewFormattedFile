@@ -8,6 +8,10 @@ Clone using git:
 ```bash
 git clone https://github.com/oliversandli/NewFormattedFile.git
 ```
+:exclamation: If your system has the `C++17` standard library or higher, switch to the `latest` branch before installing. :exclamation:
+
+:exclamation: `latest` enables the `--list` option which is cumbersome to implement on lesser versions of `C++`. :exclamation:
+
 Run install script:
 ```bash
 cd NewFormattedFile/release/
