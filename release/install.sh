@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Compiling source & installing..."
-g++ nff.cpp -o /usr/local/bin/nff
+g++ nff.cpp -o /usr/local/bin/nff -lstdc++fs -std=c++17
 echo "Creating config directory and templates..."
 if [ $XDG_CONFIG_HOME ]
 then

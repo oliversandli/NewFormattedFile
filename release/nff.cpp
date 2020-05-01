@@ -33,8 +33,10 @@ std::string conf_dir() {
 
 // add the ability to list config files (see lines 46-47)
 void list_confs(std::string dir) {
+    std::string conf_name;
     for (const auto & entry: std::filesystem::directory_iterator(dir)) {
-        std::cout << entry.path() << std::endl;
+        conf_name = entry.path();
+        std::cout << conf_name.substr(conf_name.find_last_of("/") + 1) << std::endl;
     }
 }
 
