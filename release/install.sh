@@ -9,7 +9,7 @@ then
   cp -r templates $XDG_CONFIG_HOME/nff/templates/
   echo "Installed templates in '$XDG_CONFIG_HOME/nff/templates/'"
 else
-  if [ ~/.config ]
+  if [ -d ~/.config ]
   then
     mkdir ~/.config/nff/
     cp -r templates ~/.config/nff/templates/
