@@ -2,7 +2,9 @@
 
 ![cpp](https://img.shields.io/badge/cpp-11-blue)
 [![license](https://img.shields.io/badge/license-MIT-orange)](https://choosealicense.com/licenses/mit/)
-![status](https://img.shields.io/badge/status-maintained-brightgreen)
+![status](https://img.shields.io/badge/status-deprecated-red)
+
+WARNING: This project is deprecated, and no longer maintained. Go to [NimFormattedFile](https://github.com/oliversandli/NimFormattedFile) for a revamped version of this project.
 
 nff (NewFormattedFile) creates a new file with the format specified by its matching config file. Thus a file ending in `.py` will be created with the contents of `nff`'s `py.conf`. The `.conf` files are simply plain text. Five `.conf` files are included as examples.
 
